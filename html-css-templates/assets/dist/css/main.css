@@ -398,13 +398,25 @@ body {
   display: flex;
   min-height: 100vh;
   -ms-flex-direction: column;
-  flex-direction: column; }
+  flex-direction: column;
+  background: #FFFBD0; }
 
 #header {
-  background-color: blue;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #FFFBD0;
   top: 0;
-  height: 50px;
-  width: auto; }
+  height: 70px;
+  position: relative;
+  -ms-flex-pack: center;
+  justify-content: center;
+  border-bottom: #cc3300 solid 1px; }
+
+.container {
+  width: 960px;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative; }
 
 #main {
   -ms-flex: 1;
@@ -412,26 +424,21 @@ body {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-flow: row;
-  flex-flow: row; }
+  flex-flow: row;
+  -ms-flex-pack: center;
+  justify-content: center; }
 
 #sidebar1 {
-  -ms-flex-preferred-size: 20%;
-  flex-basis: 20%;
+  -ms-flex-preferred-size: 25%;
+  flex-basis: 25%;
   -ms-flex-order: 1;
   order: 1;
-  background-color: yellow; }
-
-#sidebar2 {
-  -ms-flex-preferred-size: 20%;
-  flex-basis: 20%;
-  -ms-flex-order: 3;
-  order: 3;
-  background-color: yellow; }
+  background-color: #01FF70; }
 
 #content {
-  background-color: green;
-  -ms-flex-preferred-size: 60%;
-  flex-basis: 60%;
+  background-color: #F012BE;
+  -ms-flex-preferred-size: 75%;
+  flex-basis: 75%;
   -ms-flex-order: 2;
   order: 2;
   display: -ms-flexbox;
@@ -440,10 +447,29 @@ body {
   flex-flow: column; }
 
 #footer {
-  background-color: blue;
+  border-top: #cc3300 solid 1px;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #FFFBD0;
+  -ms-flex-pack: center;
+  justify-content: center;
   position: relative;
   bottom: 0;
-  width: auto;
-  height: 50px;
-  clear: left;
-  width: 100%; }
+  height: 70px; }
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
+  #main {
+    -ms-flex-flow: column;
+    flex-flow: column;
+    -ms-flex-pack: start;
+    justify-content: flex-start; }
+  .container {
+    width: auto;
+    -ms-flex-flow: column;
+    flex-flow: column; }
+  #header, #footer {
+    height: auto; } }
+
+#logo {
+  height: 60px;
+  margin: 5px 50px; }

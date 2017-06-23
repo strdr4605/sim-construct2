@@ -1,42 +1,54 @@
-$primary-color: blue
-$header-footer-height: 50px
-
-#header 
-  background-color: $primary-color
+#header
+  display: flex
+  background-color: $main-color
   top: 0
   height: $header-footer-height
-  width: auto
+  position: relative
+  justify-content: center
+  border-bottom: $secondary-color solid 1px
+
+
+.container
+  width: 960px
+  display: flex
+  position: relative
 
 #main 
   flex: 1
   display: flex
   flex-flow: row
+  justify-content: center
 
 #sidebar1 
-  flex-basis: 20%
+  flex-basis: 25%
   order: 1
-  background-color: yellow
-
-
-#sidebar2 
-  flex-basis: 20%
-  order: 3
-  background-color: yellow
+  background-color: $lime
 
 
 #content 
-  background-color: green
-  flex-basis: 60%
+  background-color: $fuchsia
+  flex-basis: 75%
   order: 2
   display: flex
   flex-flow: column
 
-#footer 
-  background-color: $primary-color
+#footer
+  border-top: $secondary-color solid 1px
+  display: flex
+  background-color: $main-color
+  justify-content: center
   position: relative
   bottom: 0
-  width: auto
   height: $header-footer-height
-  clear: left
-  width: 100%
 
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2)
+  #main
+    flex-flow: column
+    justify-content: flex-start
+
+  .container
+    width: auto
+    flex-flow: column
+
+  #header, #footer
+    height: auto
