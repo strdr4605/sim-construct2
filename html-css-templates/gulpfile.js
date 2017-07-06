@@ -18,30 +18,28 @@ gulp.task('scripts:watch', function () {
 })
 
 gulp.task('imagemin', function () {
-    gulp.src('./assets/src/images/*')
-      .pipe(imagemin())
-      .pipe(gulp.dest('./assets/dist/images'))
-  }
-)
+  gulp.src('./assets/src/images/*')
+    .pipe(imagemin())
+		.pipe(gulp.dest('./assets/dist/images'))
+})
 
 gulp.task('browser-sync', function () {
-    browserSync.init({
-        server: {
-            baseDir: "./"
-        }
-    })
+  browserSync.init({
+    server: {
+      baseDir: './'
+    }
+  })
 })
 
 gulp.task('sass', function () {
   return gulp.src('./assets/src/sass/main.sass')
     .pipe(sass().on('error', sass.logError))
     .pipe(autoprefixer({
-        browsers: ['last 2 versions'],
-        cascade: false
+      browsers: ['last 2 versions'],
+      cascade: false
     }))
     .pipe(gulp.dest('./assets/dist/css/'))
 })
-
 
 gulp.task('sass:watch', function () {
   gulp.watch('./assets/src/sass/**/*.sass', ['sass'])
@@ -52,5 +50,3 @@ gulp.task('html:watch', function () {
 })
 
 gulp.task('default', ['imagemin', 'sass', 'sass:watch', 'scripts', 'scripts:watch', 'browser-sync', 'html:watch'])
-
-// autoprefixer gulp, imagemin gulp
